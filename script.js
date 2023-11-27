@@ -1,6 +1,5 @@
 
 
-
 var swiper = new Swiper(".mySwiper", {
     spaceBetween: 30,
     centeredSlides: true,
@@ -32,3 +31,23 @@ function sendEmail(){
 );
 }
 
+
+
+const scriptURL = 'https://script.google.com/macros/s/AKfycby_IHV4vyOUh9TEkk8OCLtQGCm2Jz_U98HBHrNm3m0FH60A_BKMvhPDxfd4axCgaPzY/exec'
+			const form = document.forms['contact']
+		  
+			form.addEventListener('submit', e => {
+			  e.preventDefault()
+        window.location.href = 'thank-you.html';
+			  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+				//.then(response => alert("Thank you! your form is submitted successfully." ))
+        
+				.then(() => {  window.location.reload(); })
+				.catch(error => console.error('Error!', error.message))
+			})
+
+
+
+
+
+     
